@@ -8,11 +8,11 @@ mainClock = pygame.time.Clock()
 from pygame.locals import *
 
 pygame.init()
-pygame.display.set_caption('game base')
+pygame.display.set_caption('Sudoku')
 screen = pygame.display.set_mode((500, 500), 0, 32)
 
-font = pygame.font.SysFont(None, 20)
-
+font = pygame.font.SysFont("Comic Sans MS", 40)
+fondo = pygame.image.load("fondo.jpg").convert()
 
 def draw_text(text, font, color, surface, x, y):
     textobj = font.render(text, 1, color)
@@ -27,13 +27,15 @@ click = False
 def main_menu():
     while True:
 
-        screen.fill((0, 0, 0))
-        draw_text('main menu', font, (255, 255, 255), screen, 20, 20)
+        screen.blit(fondo, [0,0])
+        draw_text('Menu', font, (255, 255, 255), screen, 200, 20)
 
         mx, my = pygame.mouse.get_pos()
 
-        button_1 = pygame.Rect(50, 100, 200, 50)
-        button_2 = pygame.Rect(50, 200, 200, 50)
+        button_1 = pygame.Rect(125, 150, 250, 50)
+        button_2 = pygame.Rect(125, 250, 250, 50)
+        button_3 = pygame.Rect(125, 350, 250, 50)
+        
         if button_1.collidepoint((mx, my)):
             if click:
                 x = random.randint(1, 3)
@@ -48,8 +50,22 @@ def main_menu():
                     import facil1
                 elif x == 2:
                     import facil2
-        pygame.draw.rect(screen, (255, 0, 0), button_1)
-        pygame.draw.rect(screen, (255, 0, 0), button_2)
+        f button_3.collidepoint((mx, my)):
+            if click:
+                x = random.randint(1,3)
+                if x == 1:
+                    import facil1
+                elif x == 2:
+                    import facil2
+        pygame.draw.rect(screen, (121, 168, 217), button_1)
+        facil = font.render("Facil", True, (255,255,255))
+        screen.blit(facil, (200,145))
+        pygame.draw.rect(screen, (121, 168, 217), button_2)
+        intermedio = font.render("Intermedio", True, (255, 255, 255))
+        screen.blit(intermedio, (150, 245))
+        pygame.draw.rect(screen, (121, 168, 217), button_3)
+        dificil = font.render("Dificil", True, (255, 255, 255))
+        screen.blit(dificil, (200, 345))
 
         click = False
         for event in pygame.event.get():
