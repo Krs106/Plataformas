@@ -1,6 +1,7 @@
 #!/usr/bin/python3.4
 # Setup Python ----------------------------------------------- #
 import pygame, sys
+import random
 
 # Setup pygame/window ---------------------------------------- #
 mainClock = pygame.time.Clock()
@@ -35,10 +36,18 @@ def main_menu():
         button_2 = pygame.Rect(50, 200, 200, 50)
         if button_1.collidepoint((mx, my)):
             if click:
-                import Sudoku_solve
+                x = random.randint(1, 3)
+                if x == 1:
+                    import intermedio1
+                elif x == 2:
+                    import intermedio2
         if button_2.collidepoint((mx, my)):
             if click:
-                options()
+                x = random.randint(1,3)
+                if x == 1:
+                    import facil1
+                elif x == 2:
+                    import facil2
         pygame.draw.rect(screen, (255, 0, 0), button_1)
         pygame.draw.rect(screen, (255, 0, 0), button_2)
 
@@ -58,41 +67,6 @@ def main_menu():
         pygame.display.update()
         mainClock.tick(60)
 
-
-def game():
-    running = True
-    while running:
-        screen.fill((0, 0, 0))
-
-        draw_text('game', font, (255, 255, 255), screen, 20, 20)
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                    running = False
-
-        pygame.display.update()
-        mainClock.tick(60)
-
-
-def options():
-    running = True
-    while running:
-        screen.fill((0, 0, 0))
-
-        draw_text('options', font, (255, 255, 255), screen, 20, 20)
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                    running = False
-
-        pygame.display.update()
-        mainClock.tick(60)
 
 
 main_menu()
