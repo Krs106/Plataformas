@@ -1,4 +1,4 @@
-#!/usr/bin/python3.4
+#!/usr/bin/python3
 # Setup Python ----------------------------------------------- #
 import pygame, sys
 import random
