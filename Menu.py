@@ -37,19 +37,21 @@ def main_menu():
         button_3 = pygame.Rect(125, 350, 250, 50)
         
         if button_1.collidepoint((mx, my)):
+                        if click:
+                x = random.randint(1, 3)
+                if x == 1:
+                    import facil1
+                elif x == 2:
+                    import facil2
+                elif x == 3:
+                    import facil3
+        if button_2.collidepoint((mx, my)):
             if click:
                 x = random.randint(1, 3)
                 if x == 1:
                     import intermedio1
                 elif x == 2:
                     import intermedio2
-        if button_2.collidepoint((mx, my)):
-            if click:
-                x = random.randint(1,3)
-                if x == 1:
-                    import facil1
-                elif x == 2:
-                    import facil2
         if button_3.collidepoint((mx, my)):
             if click:
                 x = random.randint(1,3)
