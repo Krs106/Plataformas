@@ -50,7 +50,7 @@ def main_menu():
                     import facil1
                 elif x == 2:
                     import facil2
-        f button_3.collidepoint((mx, my)):
+        if button_3.collidepoint((mx, my)):
             if click:
                 x = random.randint(1,3)
                 if x == 1:
