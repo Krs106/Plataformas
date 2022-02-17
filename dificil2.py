@@ -139,6 +139,8 @@ class Cube:
 
 def redraw_window(win, board, time, strikes):
     win.fill((255,255,255))
+    fondo = pygame.image.load("dificil.jpg").convert()
+    win.blit(fondo, [0, 0])
     # Draw time
     fnt = pygame.font.SysFont("comicsans", 40)
     text = fnt.render("Time: " + format_time(time), 1, (0,0,0))
