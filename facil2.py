@@ -1,7 +1,7 @@
 # GUI.py
 # RUN THIS FILE
 import pygame
-from Plataformas.Proyecto.Sudoku1 import solve, valid
+from Sudoku import solve, valid
 import time
 pygame.font.init()
 
@@ -142,7 +142,7 @@ def redraw_window(win, board, time, strikes):
     # Draw time
     fnt = pygame.font.SysFont("comicsans", 40)
     text = fnt.render("Time: " + format_time(time), 1, (0,0,0))
-    win.blit(text, (480 -  160, 540))
+    win.blit(text, (370 - 160, 560))
     # Draw Strikes
     text = fnt.render("X " * strikes, 1, (255, 0, 0))
     win.blit(text, (20, 540))

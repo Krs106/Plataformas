@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 
 def solve(tab):
     find = encontrar_vacio(tab)
@@ -60,4 +61,3 @@ def encontrar_vacio(tab):
                 return (i, j)  # fila, columna
 
     return None
-
