@@ -76,13 +76,13 @@ def main_menu():
                     import dificil2
         pygame.draw.rect(screen, (121, 168, 217), button_1)
         facil = font.render("Facil", True, (255,255,255))
-        screen.blit(facil, (200,145))
+        screen.blit(facil, (200,150))
         pygame.draw.rect(screen, (121, 168, 217), button_2)
         intermedio = font.render("Intermedio", True, (255, 255, 255))
-        screen.blit(intermedio, (150, 245))
+        screen.blit(intermedio, (150, 250))
         pygame.draw.rect(screen, (121, 168, 217), button_3)
         dificil = font.render("Dificil", True, (255, 255, 255))
-        screen.blit(dificil, (200, 345))
+        screen.blit(dificil, (200, 350))
 
         click = False
         for event in pygame.event.get():
