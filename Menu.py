@@ -71,9 +71,9 @@ def main_menu():
                 sound.play()
                 x = random.randint(1,3)
                 if x == 1:
-                    import facil1
+                    import dificil1
                 elif x == 2:
-                    import facil2
+                    import dificil2
         pygame.draw.rect(screen, (121, 168, 217), button_1)
         facil = font.render("Facil", True, (255,255,255))
         screen.blit(facil, (200,145))
