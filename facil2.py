@@ -122,7 +122,7 @@ class Cube:
         y = self.row * gap
 
         if self.temp != 0 and self.value == 0:
-            text = fnt.render(str(self.temp), 1, (128,128,128))
+            text = fnt.render(str(self.temp), 1, (27,53,97))
             win.blit(text, (x+5, y+5))
         elif not(self.value == 0):
             text = fnt.render(str(self.value), 1, (0, 0, 0))
@@ -139,6 +139,8 @@ class Cube:
 
 def redraw_window(win, board, time, strikes):
     win.fill((255,255,255))
+    fondo = pygame.image.load("beethoven.jpg").convert()
+    win.blit(fondo, [0, 0])
     # Draw time
     fnt = pygame.font.SysFont("comicsans", 40)
     text = fnt.render("Time: " + format_time(time), 1, (0,0,0))
