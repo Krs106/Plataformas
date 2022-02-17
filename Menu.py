@@ -57,11 +57,13 @@ def main_menu():
             if click:
                 sound = pygame.mixer.Sound("ELVIS.mp3")
                 sound.play()
-                x = random.randint(1, 3)
+                x = random.randint(1, 4)
                 if x == 1:
                     import intermedio1
                 elif x == 2:
                     import intermedio2
+                elif x == 3:
+                    import intermedio3
         if button_3.collidepoint((mx, my)):
             button3_sound = pygame.mixer.Sound("button-09a.wav")
             button3_sound.set_volume(0.2)
