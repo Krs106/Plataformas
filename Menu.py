@@ -32,9 +32,9 @@ def main_menu():
 
         mx, my = pygame.mouse.get_pos()
 
-        button_1 = pygame.Rect(125, 145, 250, 50)
-        button_2 = pygame.Rect(125, 245, 250, 50)
-        button_3 = pygame.Rect(125, 345, 250, 50)
+        button_1 = pygame.Rect(125, 155, 250, 50)
+        button_2 = pygame.Rect(125, 255, 250, 50)
+        button_3 = pygame.Rect(125, 355, 250, 50)
 
         if button_1.collidepoint((mx, my)):
             button1_sound = pygame.mixer.Sound("button-6.wav")
