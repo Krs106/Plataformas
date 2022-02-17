@@ -35,9 +35,11 @@ def main_menu():
         button_1 = pygame.Rect(125, 150, 250, 50)
         button_2 = pygame.Rect(125, 250, 250, 50)
         button_3 = pygame.Rect(125, 350, 250, 50)
-        
+
         if button_1.collidepoint((mx, my)):
-                        if click:
+            if click:
+                sound = pygame.mixer.Sound("5TASINFONIA.mp3")
+                sound.play()
                 x = random.randint(1, 3)
                 if x == 1:
                     import facil1
@@ -47,6 +49,8 @@ def main_menu():
                     import facil3
         if button_2.collidepoint((mx, my)):
             if click:
+                sound = pygame.mixer.Sound("ELVIS.mp3")
+                sound.play()
                 x = random.randint(1, 3)
                 if x == 1:
                     import intermedio1
@@ -54,6 +58,8 @@ def main_menu():
                     import intermedio2
         if button_3.collidepoint((mx, my)):
             if click:
+                sound = pygame.mixer.Sound("GNRJ.mp3")
+                sound.play()
                 x = random.randint(1,3)
                 if x == 1:
                     import facil1
