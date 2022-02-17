@@ -1,7 +1,7 @@
 # GUI.py
 # RUN THIS FILE
 import pygame
-from Plataformas.Proyecto.Sudoku1 import solve, valid
+from Sudoku import solve, valid
 import time
 pygame.font.init()
 

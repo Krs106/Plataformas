@@ -1,6 +1,6 @@
 # RUN THIS FILE
 import pygame
-from Plataformas.Sudoku import solve, valid
+from Sudoku import solve, valid
 import time
 pygame.font.init()
 
