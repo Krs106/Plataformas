@@ -1,7 +1,7 @@
 import pygame
 from Sudoku import solve, valid
+from pygame import *
 import time
-import *
 import sys
 pygame.font.init()
 
