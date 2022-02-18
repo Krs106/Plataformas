@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+
 
 import pygame
 from Sudoku import solve, valid
