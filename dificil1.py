@@ -1,4 +1,4 @@
-# GUI.py
+#!/usr/bin/python3
 import pygame
 from Sudoku import solve, valid
 import time
