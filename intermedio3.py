@@ -24,14 +24,16 @@ class Grid:
     def __init__(self, rows, cols, width, height):
         self.rows = rows
         self.cols = cols
-        self.cubes = [[Cube(self.board[i][j], i, j, width, height) for j in range(cols)] for i in range(rows)]
+        self.cubes = [[Cube(self.board[i][j], i, j, width, height)
+                       for j in range(cols)] for i in range(rows)]
         self.width = width
         self.height = height
         self.model = None
         self.selected = None
 
     def update_model(self):
-        self.model = [[self.cubes[i][j].value for j in range(self.cols)] for i in range(self.rows)]
+        self.model = [[self.cubes[i][j].value
+                       for j in range(self.cols)] for i in range(self.rows)]
 
     def place(self, val):
         row, col = self.selected
@@ -39,7 +41,7 @@ class Grid:
             self.cubes[row][col].set(val)
             self.update_model()
 
-            if valid(self.model, val, (row,col)) and solve(self.model):
+            if valid(self.model, val, (row, col)) and solve(self.model):
                 return True
             else:
                 self.cubes[row][col].set(0)
@@ -59,8 +61,10 @@ class Grid:
                 thick = 4
             else:
                 thick = 1
-            pygame.draw.line(win, (0,0,0), (0, i*gap), (self.width, i*gap), thick)
-            pygame.draw.line(win, (0, 0, 0), (i * gap, 0), (i * gap, self.height), thick)
+            pygame.draw.line(win, (0, 0, 0), (0, i*gap),
+                             (self.width, i*gap), thick)
+            pygame.draw.line(win, (0, 0, 0), (i * gap, 0),
+                             (i * gap, self.height), thick)
 
         # Draw Cubes
         for i in range(self.rows):
@@ -90,7 +94,7 @@ class Grid:
             gap = self.width / 9
             x = pos[0] // gap
             y = pos[1] // gap
-            return (int(y),int(x))
+            return (int(y), int(x))
         else:
             return None
 
@@ -106,7 +110,7 @@ class Cube:
     rows = 9
     cols = 9
 
-    def __init__(self, value, row, col, width ,height):
+    def __init__(self, value, row, col, width, height):
         self.value = value
         self.temp = 0
         self.row = row
@@ -123,14 +127,15 @@ class Cube:
         y = self.row * gap
 
         if self.temp != 0 and self.value == 0:
-            text = fnt.render(str(self.temp), 1, (27,53,97))
+            text = fnt.render(str(self.temp), 1, (27, 53, 97))
             win.blit(text, (x+5, y+5))
         elif not(self.value == 0):
             text = fnt.render(str(self.value), 1, (0, 0, 0))
-            win.blit(text, (x + (gap/2 - text.get_width()/2), y + (gap/2 - text.get_height()/2)))
+            win.blit(text, (x + (gap/2 - text.get_width()/2),
+                            y + (gap/2 - text.get_height()/2)))
 
         if self.selected:
-            pygame.draw.rect(win, (255,0,0), (x,y, gap ,gap), 3)
+            pygame.draw.rect(win, (255, 0, 0), (x, y, gap, gap), 3)
 
     def set(self, val):
         self.value = val
@@ -138,32 +143,40 @@ class Cube:
     def set_temp(self, val):
         self.temp = val
 
+
 def redraw_window(win, board, time, strikes):
-    win.fill((255,255,255))
+    win.fill((255, 255, 255))
     fondo = pygame.image.load("intermedio.jpg").convert()
     win.blit(fondo, [0, 0])
+    mx, my = pygame.mouse.get_pos()
+    menu = pygame.Rect(150, 600, 250, 50)
+    if menu.collidepoint(mx, my):
+        draw.rect(win, (112, 185, 230), menu, 0)
+    else:
+        draw.rect(win, (111, 161, 252), menu, 0)
     # Draw time
     fnt = pygame.font.SysFont("comicsans", 40)
-    text = fnt.render("Time: " + format_time(time), 1, (0,0,0))
-    win.blit(text, (480 -  160, 550))
+    text = fnt.render("Time: " + format_time(time), 1, (0, 0, 0))
+    win.blit(text, (480 - 160, 550))
     # Draw Strikes
     text = fnt.render("X " * strikes, 1, (255, 0, 0))
     win.blit(text, (20, 550))
+    text = fnt.render("Menú", True, (255, 255, 255))
+    win.blit(text, (menu.x + (menu.width - text.get_width()) / 2, menu.y + (menu.height - text.get_height()) / 2))
     # Draw grid and board
     board.draw(win)
 
 
 def format_time(secs):
-    sec = secs%60
+    sec = secs % 60
     minute = secs//60
-    hour = minute//60
 
     mat = " " + str(minute) + ":" + str(sec)
     return mat
 
 
 def main():
-    win = pygame.display.set_mode((540,600))
+    win = pygame.display.set_mode((540, 650))
     pygame.display.set_caption("Sudoku")
     board = Grid(9, 9, 540, 540)
     key = None
@@ -173,8 +186,12 @@ def main():
     while run:
 
         play_time = round(time.time() - start)
+        menu = pygame.Rect(150, 600, 250, 50)
 
         for event in pygame.event.get():
+            if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                if menu.collidepoint(mouse.get_pos()):
+                    import Menu
             if event.type == pygame.QUIT:
                 run = False
             if event.type == pygame.KEYDOWN:
@@ -220,13 +237,13 @@ def main():
                     board.select(clicked[0], clicked[1])
                     key = None
 
-        if board.selected and key != None:
+        if board.selected and key is not None:
             board.sketch(key)
 
         redraw_window(win, board, play_time, strikes)
         pygame.display.update()
 
-# SE IGNORA LA DEFINICION DE RELOJ Y DEMAS ELEMENTOS BASICOS
+
 GAME_END = False
 
 
