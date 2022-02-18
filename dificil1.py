@@ -3,7 +3,6 @@ import pygame
 from Sudoku import solve, valid
 import time
 from pygame import *
-import sys
 pygame.font.init()
 
 
