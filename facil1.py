@@ -230,7 +230,7 @@ def main():
         redraw_window(win, board, play_time, strikes)
         pygame.display.update()
 
-        
+
 GAME_END = False
 
 
