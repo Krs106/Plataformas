@@ -221,9 +221,9 @@ def main():
                             strikes += 1
                         key = None
 
-                        if board.is_finished():
+                        if board.is_finished() or strikes == 5:
                             print("Game over")
-                            run = False
+                            import menu
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
