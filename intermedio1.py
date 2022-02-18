@@ -223,13 +223,13 @@ def main():
                     board.select(clicked[0], clicked[1])
                     key = None
 
-        if board.selected and key != None:
+        if board.selected and key is not None:
             board.sketch(key)
 
         redraw_window(win, board, play_time, strikes)
         pygame.display.update()
 
-# SE IGNORA LA DEFINICION DE RELOJ Y DEMAS ELEMENTOS BASICOS
+
 GAME_END = False
 
 
