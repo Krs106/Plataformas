@@ -1,8 +1,8 @@
+# GUI.py
+# RUN THIS FILE
 import pygame
 from Sudoku import solve, valid
-from pygame import *
 import time
-import sys
 pygame.font.init()
 
 
