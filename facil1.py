@@ -23,7 +23,7 @@ class Grid:
     def __init__(self, rows, cols, width, height):
         self.rows = rows
         self.cols = cols
-        self.cubes = [[Cube(self.board[i][j], i, j, width, height) 
+        self.cubes = [[Cube(self.board[i][j], i, j, width, height)
                        for j in range(cols)] for i in range(rows)]
         self.width = width
         self.height = height
@@ -31,7 +31,7 @@ class Grid:
         self.selected = None
 
     def update_model(self):
-        self.model = [[self.cubes[i][j].value 
+        self.model = [[self.cubes[i][j].value
                        for j in range(self.cols)] for i in range(self.rows)]
 
     def place(self, val):
@@ -60,8 +60,10 @@ class Grid:
                 thick = 4
             else:
                 thick = 1
-            pygame.draw.line(win, (0, 0, 0), (0, i*gap), (self.width, i*gap), thick)
-            pygame.draw.line(win, (0, 0, 0), (i * gap, 0), (i * gap, self.height), thick)
+            pygame.draw.line(win, (0, 0, 0), (0, i*gap),
+                             (self.width, i*gap), thick)
+            pygame.draw.line(win, (0, 0, 0), (i * gap, 0),
+                             (i * gap, self.height), thick)
 
         # Draw Cubes
         for i in range(self.rows):
@@ -107,7 +109,7 @@ class Cube:
     rows = 9
     cols = 9
 
-    def __init__(self, value, row, col, width , height):
+    def __init__(self, value, row, col, width, height):
         self.value = value
         self.temp = 0
         self.row = row
@@ -140,14 +142,15 @@ class Cube:
     def set_temp(self, val):
         self.temp = val
 
+        
 def redraw_window(win, board, time, strikes):
-    win.fill((255,255,255))
+    win.fill((255, 255, 255))
     fondo = pygame.image.load("beethoven.jpg").convert()
     win.blit(fondo, [0, 0])
     # Draw time
     fnt = pygame.font.SysFont("comicsans", 40)
     text = fnt.render("Time: " + format_time(time), 1, (0, 0, 0))
-    win.blit(text, (480 -  160, 550))
+    win.blit(text, (480 - 160, 550))
     # Draw Strikes
     text = fnt.render("X " * strikes, 1, (255, 0, 0))
     win.blit(text, (20, 550))
@@ -156,16 +159,15 @@ def redraw_window(win, board, time, strikes):
 
 
 def format_time(secs):
-    sec = secs%60
+    sec = secs % 60
     minute = secs//60
-    hour = minute//60
 
     mat = " " + str(minute) + ":" + str(sec)
     return mat
 
 
 def main():
-    win = pygame.display.set_mode((540,600))
+    win = pygame.display.set_mode((540, 600))
     pygame.display.set_caption("Sudoku")
     board = Grid(9, 9, 540, 540)
     key = None
@@ -222,13 +224,12 @@ def main():
                     board.select(clicked[0], clicked[1])
                     key = None
 
-        if board.selected and key != None:
+        if board.selected and key is not None:
             board.sketch(key)
 
         redraw_window(win, board, play_time, strikes)
         pygame.display.update()
 
-# SE IGNORA LA DEFINICION DE RELOJ Y DEMAS ELEMENTOS BASICOS
 GAME_END = False
 
 
