@@ -1,10 +1,10 @@
 # GUI.py
 # RUN THIS FILE
 import pygame
+from pygame import *
 from Sudoku import solve, valid
 import time
 pygame.font.init()
-
 
 class Grid:
     # To change the starting board change this
