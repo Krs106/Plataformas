@@ -20,17 +20,19 @@ class Grid:
         [0, 0, 5, 9, 3, 4, 2, 1, 6]
     ]
 
-    def __init__(self, rows, cols, width, height):
+       def __init__(self, rows, cols, width, height):
         self.rows = rows
         self.cols = cols
-        self.cubes = [[Cube(self.board[i][j], i, j, width, height) for j in range(cols)] for i in range(rows)]
+        self.cubes = [[Cube(self.board[i][j], i, j, width, height)
+                       for j in range(cols)] for i in range(rows)]
         self.width = width
         self.height = height
         self.model = None
         self.selected = None
 
     def update_model(self):
-        self.model = [[self.cubes[i][j].value for j in range(self.cols)] for i in range(self.rows)]
+        self.model = [[self.cubes[i][j].value
+                       for j in range(self.cols)] for i in range(self.rows)]
 
     def place(self, val):
         row, col = self.selected
@@ -38,7 +40,7 @@ class Grid:
             self.cubes[row][col].set(val)
             self.update_model()
 
-            if valid(self.model, val, (row,col)) and solve(self.model):
+            if valid(self.model, val, (row, col)) and solve(self.model):
                 return True
             else:
                 self.cubes[row][col].set(0)
@@ -58,8 +60,10 @@ class Grid:
                 thick = 4
             else:
                 thick = 1
-            pygame.draw.line(win, (0,0,0), (0, i*gap), (self.width, i*gap), thick)
-            pygame.draw.line(win, (0, 0, 0), (i * gap, 0), (i * gap, self.height), thick)
+            pygame.draw.line(win, (0, 0, 0), (0, i*gap),
+                             (self.width, i*gap), thick)
+            pygame.draw.line(win, (0, 0, 0), (i * gap, 0),
+                             (i * gap, self.height), thick)
 
         # Draw Cubes
         for i in range(self.rows):
@@ -89,7 +93,7 @@ class Grid:
             gap = self.width / 9
             x = pos[0] // gap
             y = pos[1] // gap
-            return (int(y),int(x))
+            return (int(y), int(x))
         else:
             return None
 
@@ -105,7 +109,7 @@ class Cube:
     rows = 9
     cols = 9
 
-    def __init__(self, value, row, col, width ,height):
+    def __init__(self, value, row, col, width, height):
         self.value = value
         self.temp = 0
         self.row = row
@@ -122,14 +126,15 @@ class Cube:
         y = self.row * gap
 
         if self.temp != 0 and self.value == 0:
-            text = fnt.render(str(self.temp), 1, (27,53,97))
+            text = fnt.render(str(self.temp), 1, (27, 53, 97))
             win.blit(text, (x+5, y+5))
         elif not(self.value == 0):
             text = fnt.render(str(self.value), 1, (0, 0, 0))
-            win.blit(text, (x + (gap/2 - text.get_width()/2), y + (gap/2 - text.get_height()/2)))
+            win.blit(text, (x + (gap/2 - text.get_width()/2),
+                            y + (gap/2 - text.get_height()/2)))
 
         if self.selected:
-            pygame.draw.rect(win, (255,0,0), (x,y, gap ,gap), 3)
+            pygame.draw.rect(win, (255, 0, 0), (x, y, gap, gap), 3)
 
     def set(self, val):
         self.value = val
@@ -137,14 +142,15 @@ class Cube:
     def set_temp(self, val):
         self.temp = val
 
+
 def redraw_window(win, board, time, strikes):
-    win.fill((255,255,255))
+    win.fill((255, 255, 255))
     fondo = pygame.image.load("beethoven.jpg").convert()
     win.blit(fondo, [0, 0])
     # Draw time
     fnt = pygame.font.SysFont("comicsans", 40)
-    text = fnt.render("Time: " + format_time(time), 1, (0,0,0))
-    win.blit(text, (480 -  160, 550))
+    text = fnt.render("Time: " + format_time(time), 1, (0, 0, 0))
+    win.blit(text, (480 - 160, 550))
     # Draw Strikes
     text = fnt.render("X " * strikes, 1, (255, 0, 0))
     win.blit(text, (20, 550))
@@ -162,7 +168,7 @@ def format_time(secs):
 
 
 def main():
-    win = pygame.display.set_mode((540,600))
+    win = pygame.display.set_mode((540, 600))
     pygame.display.set_caption("Sudoku")
     board = Grid(9, 9, 540, 540)
     key = None
@@ -225,7 +231,7 @@ def main():
         redraw_window(win, board, play_time, strikes)
         pygame.display.update()
 
-# SE IGNORA LA DEFINICION DE RELOJ Y DEMAS ELEMENTOS BASICOS
+
 GAME_END = False
 
 
