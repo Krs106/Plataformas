@@ -140,6 +140,7 @@ class Cube:
 
 def redraw_window(win, board, time, strikes):
     win.fill((255,255,255))
+    mx, my = pygame.mouse.get_pos()
     fondo = pygame.image.load("dificil.jpg").convert()
     win.blit(fondo, [0, 0])
     menu = pygame.Rect(150, 600, 250, 50)
