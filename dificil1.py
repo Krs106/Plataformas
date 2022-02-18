@@ -184,7 +184,7 @@ def main():
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 if menu.collidepoint(mouse.get_pos()):
-                    import menu
+                    import Menu
             if event.type == pygame.QUIT:
                 run = False
             if event.type == pygame.KEYDOWN:
