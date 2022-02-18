@@ -147,6 +147,12 @@ def redraw_window(win, board, time, strikes):
     win.fill((255, 255, 255))
     fondo = pygame.image.load("beethoven.jpg").convert()
     win.blit(fondo, [0, 0])
+    mx, my = pygame.mouse.get_pos()
+    menu = pygame.Rect(150, 600, 250, 50)
+    if menu.collidepoint(mx, my):
+        draw.rect(win, (112, 185, 230), menu, 0)
+    else:
+        draw.rect(win, (111, 161, 252), menu, 0)
     # Draw time
     fnt = pygame.font.SysFont("comicsans", 40)
     text = fnt.render("Time: " + format_time(time), 1, (0, 0, 0))
@@ -154,6 +160,8 @@ def redraw_window(win, board, time, strikes):
     # Draw Strikes
     text = fnt.render("X " * strikes, 1, (255, 0, 0))
     win.blit(text, (20, 550))
+    text = fnt.render("Menú", True, (255, 255, 255))
+    win.blit(text, (menu.x + (menu.width - text.get_width()) / 2, menu.y + (menu.height - text.get_height()) / 2))
     # Draw grid and board
     board.draw(win)
 
@@ -167,7 +175,7 @@ def format_time(secs):
 
 
 def main():
-    win = pygame.display.set_mode((540, 600))
+    win = pygame.display.set_mode((540, 650))
     pygame.display.set_caption("Sudoku")
     board = Grid(9, 9, 540, 540)
     key = None
@@ -177,8 +185,12 @@ def main():
     while run:
 
         play_time = round(time.time() - start)
+        menu = pygame.Rect(150, 600, 250, 50)
 
         for event in pygame.event.get():
+            if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                if menu.collidepoint(mouse.get_pos()):
+                    import menu
             if event.type == pygame.QUIT:
                 run = False
             if event.type == pygame.KEYDOWN:
