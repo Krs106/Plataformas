@@ -159,9 +159,8 @@ def redraw_window(win, board, time, strikes):
 
 
 def format_time(secs):
-    sec = secs%60
+    sec = secs % 60
     minute = secs//60
-    hour = minute//60
 
     mat = " " + str(minute) + ":" + str(sec)
     return mat
@@ -225,7 +224,7 @@ def main():
                     board.select(clicked[0], clicked[1])
                     key = None
 
-        if board.selected and key != None:
+        if board.selected and key is not None:
             board.sketch(key)
 
         redraw_window(win, board, play_time, strikes)
