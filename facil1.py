@@ -130,11 +130,11 @@ class Cube:
             win.blit(text, (x+5, y+5))
         elif not(self.value == 0):
             text = fnt.render(str(self.value), 1, (0, 0, 0))
-            win.blit(text, (x + (gap/2 - text.get_width()/2), 
+            win.blit(text, (x + (gap/2 - text.get_width()/2),
                             y + (gap/2 - text.get_height()/2)))
 
         if self.selected:
-            pygame.draw.rect(win, (255,0,0), (x,y, gap ,gap), 3)
+            pygame.draw.rect(win, (255, 0, 0), (x, y, gap, gap), 3)
 
     def set(self, val):
         self.value = val
@@ -142,7 +142,7 @@ class Cube:
     def set_temp(self, val):
         self.temp = val
 
-        
+
 def redraw_window(win, board, time, strikes):
     win.fill((255, 255, 255))
     fondo = pygame.image.load("beethoven.jpg").convert()
@@ -230,6 +230,7 @@ def main():
         redraw_window(win, board, play_time, strikes)
         pygame.display.update()
 
+        
 GAME_END = False
 
 
