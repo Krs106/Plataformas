@@ -19,7 +19,7 @@ class Grid:
         [0, 4, 9, 2, 0, 6, 0, 0, 7]
     ]
 
-     def __init__(self, rows, cols, width, height):
+    def __init__(self, rows, cols, width, height):
         self.rows = rows
         self.cols = cols
         self.cubes = [[Cube(self.board[i][j], i, j, width, height)
