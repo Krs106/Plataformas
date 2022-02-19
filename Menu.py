@@ -8,11 +8,15 @@ mainClock = pygame.time.Clock()
 from pygame.locals import *
 
 pygame.init()
+black =(0,0,0)
 pygame.display.set_caption('Sudoku')
 screen = pygame.display.set_mode((500, 500), 0, 32)
 
 font = pygame.font.SysFont("Comic Sans MS", 40)
 fondo = pygame.image.load("fondo.jpg").convert()
+
+#text2 = font.render(("Digite su nombre"), True, black)
+
 
 def draw_text(text, font, color, surface, x, y):
     textobj = font.render(text, 1, color)
@@ -23,11 +27,12 @@ def draw_text(text, font, color, surface, x, y):
 
 click = False
 
-
+#funciones de mission
 def main_menu():
     while True:
 
         screen.blit(fondo, [0,0])
+        #screen.blit(text2, (80, 90))
         draw_text('Menu', font, (255, 255, 255), screen, 200, 20)
 
         mx, my = pygame.mouse.get_pos()
@@ -35,6 +40,7 @@ def main_menu():
         button_1 = pygame.Rect(125, 140, 250, 50)
         button_2 = pygame.Rect(125, 240, 250, 50)
         button_3 = pygame.Rect(125, 340, 250, 50)
+        button_4 = pygame.Rect(125, 420, 250, 50) #ubica botton
 
         if button_1.collidepoint((mx, my)):
             button1_sound = pygame.mixer.Sound("button-6.wav")
@@ -76,6 +82,15 @@ def main_menu():
                     import dificil1
                 elif x == 2:
                     import dificil2
+
+        if button_4.collidepoint((mx, my)):
+            button4_sound = pygame.mixer.Sound("button-09a.wav")
+            button4_sound.set_volume(0.2)
+            button4_sound.play()
+            if click:
+                    import Registro1
+
+
         pygame.draw.rect(screen, (121, 168, 217), button_1)
         facil = font.render("Facil", True, (255,255,255))
         screen.blit(facil, (200,150))
@@ -85,6 +100,10 @@ def main_menu():
         pygame.draw.rect(screen, (121, 168, 217), button_3)
         dificil = font.render("Dificil", True, (255, 255, 255))
         screen.blit(dificil, (200, 350))
+        pygame.draw.rect(screen, (121, 168, 217), button_4)
+        Registro = font.render("Registro", True, (255, 255, 255)) #donde aparece la palabra
+        screen.blit(Registro, (200, 430)) #Aqui
+
 
         click = False
         for event in pygame.event.get():
