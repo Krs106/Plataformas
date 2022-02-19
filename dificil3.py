@@ -186,10 +186,6 @@ def main():
         menu = pygame.Rect(150, 600, 250, 50)
 
         for event in pygame.event.get():
-            if event.type == MOUSEBUTTONDOWN:
-                if menu.collidepoint(mouse.get_pos()):
-                    pygame.mixer.stop()
-                    import Menu
             if event.type == pygame.QUIT:
                 run = False
             if event.type == pygame.KEYDOWN:
@@ -234,6 +230,9 @@ def main():
                 if clicked:
                     board.select(clicked[0], clicked[1])
                     key = None
+                if menu.collidepoint(mouse.get_pos()):
+                    pygame.mixer.stop()
+                    import Menu
 
         if board.selected and key != None:
             board.sketch(key)
