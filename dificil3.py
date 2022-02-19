@@ -222,8 +222,7 @@ def main():
 
                         if board.is_finished() or strikes == 5:
                             print("Game over")
-                            import Menu
-
+                            import.reload(Menu)
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 clicked = board.click(pos)
@@ -232,7 +231,7 @@ def main():
                     key = None
                 if menu.collidepoint(mouse.get_pos()):
                     pygame.mixer.stop()
-                    import Menu
+                    import.reload(Menu)
 
         if board.selected and key != None:
             board.sketch(key)
