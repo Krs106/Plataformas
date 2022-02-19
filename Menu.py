@@ -61,8 +61,8 @@ def main_menu():
             button2_sound.set_volume(0.2)
             button2_sound.play()
             if click:
-                sound = pygame.mixer.Sound("ELVIS.mp3")
-                sound.play()
+                #sound = pygame.mixer.Sound("ELVIS.mp3")
+                #sound.play()
                 x = random.randint(1, 4)
                 if x == 1:
                     import intermedio1
@@ -75,8 +75,8 @@ def main_menu():
             button3_sound.set_volume(0.2)
             button3_sound.play()
             if click:
-                sound = pygame.mixer.Sound("GNRJ.mp3")
-                sound.play()
+                #sound = pygame.mixer.Sound("GNRJ.mp3")
+                #sound.play()
                 x = random.randint(1,3)
                 if x == 1:
                     import dificil1
