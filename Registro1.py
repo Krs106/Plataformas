@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 import pygame, sys
+from pygame import *
+from Sudoku import solve, valid
+
 
 pygame.init()
 pygame.font.init()
