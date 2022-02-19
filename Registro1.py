@@ -37,6 +37,9 @@ while True:
     text = fnt.render("Menú", True, (255, 255, 255))
     win.blit(text, (menu.x + (menu.width - text.get_width()) / 2, menu.y + (menu.height - text.get_height()) / 2))
     for event in pygame.event.get():
+        if event.type == MOUSEBUTTONDOWN and event.button == 1:
+            if menu.collidepoint(mouse.get_pos()):
+                import Menu
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
