@@ -5,6 +5,9 @@ from pygame import *
 from Sudoku import solve, valid
 import time
 pygame.font.init()
+pygame.mixer.init()
+sound = pygame.mixer.Sound("5TASINFONIA.mp3")
+sound.play()
 
 class Grid:
     # To change the starting board change this
@@ -190,6 +193,7 @@ def main():
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 if menu.collidepoint(mouse.get_pos()):
+                    pygame.mixer.stop()
                     import Menu
             if event.type == pygame.QUIT:
                 run = False

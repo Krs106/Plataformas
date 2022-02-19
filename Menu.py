@@ -47,8 +47,8 @@ def main_menu():
             button1_sound.set_volume(0.2)
             button1_sound.play()
             if click:
-                sound = pygame.mixer.Sound("5TASINFONIA.mp3")
-                sound.play()
+                #sound = pygame.mixer.Sound("5TASINFONIA.mp3")
+                #sound.play()
                 x = random.randint(1, 3)
                 if x == 1:
                     import facil1
