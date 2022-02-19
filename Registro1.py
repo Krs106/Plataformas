@@ -34,6 +34,8 @@ while True:
         draw.rect(win, (112, 185, 230), menu, 0)
     else:
         draw.rect(win, (111, 161, 252), menu, 0)
+    text = fnt.render("Menú", True, (255, 255, 255))
+    win.blit(text, (menu.x + (menu.width - text.get_width()) / 2, menu.y + (menu.height - text.get_height()) / 2))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
