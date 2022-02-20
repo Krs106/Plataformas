@@ -7,14 +7,17 @@ black =(0,0,0)
 font = pygame.font.SysFont("Comic Sans MS", 40)
 clock = pygame.time.Clock()
 screen =pygame.display.set_mode([500,500])
-fondo = pygame.image.load("Azul.jpeg").convert()
+fondo = pygame.image.load("sudo.JPG").convert()
 text2 = font.render(("Digite su nombre"), True, black)
-base_font = pygame.font.Font(None,32)
-user_text = ''
-user_text1 = 'REGISTRO DEL USUARIO'
-user_text2 = 'Digite su NICK:'
-user_text3 = 'El tiempo de su intento es: '
-user_text4 = 'format_time(time)'
+base_font = pygame.font.Font(None,27)
+
+user_text1 = 'Instruciones'
+user_text2 = '1. Seleccione la celda con el mouse para modificar'
+user_text3 = '2. Digite el número correcto a escribir en la casilla'
+user_text4 = '3. Verifique con ENTER su selección'
+user_text5 = '4. Presione el botón Menú para retornar al Menú'
+user_text6 = '5. Clic en la X de la Ventana para abandonar'
+
 
 
 
@@ -44,20 +47,33 @@ while True:
     pygame.draw.rect(screen,color,input_rect,2)
     screen.blit(fondo, [0,0])
     text1_surface = base_font.render(user_text1, True, (50,50,255))
-    screen.blit(text1_surface,(120,13))
+    screen.blit(text1_surface,(80,13))
 
     text2_surface = base_font.render(user_text2, True, black)
-    screen.blit(text2_surface,(30,140))
-
+    screen.blit(text2_surface,(30,200))
 
     text3_surface = base_font.render(user_text3, True, black)
-    screen.blit(text3_surface,(30,190))
-    #text = fnt.render(user_text3 + format_time(time), 1, (0,0,0))
-    #win.blit(text, (480 -  160, 550))
+    screen.blit(text3_surface,(30,235))
 
-    text_surface = base_font.render(user_text, True, (100,100,255))
-    screen.blit(text_surface,(input_rect.x +5 ,input_rect.y +5))
-    input_rect.w =max(100,text_surface.get_width()+10)
+    text4_surface = base_font.render(user_text4, True, black)
+    screen.blit(text4_surface,(30,270))
+
+    text5_surface = base_font.render(user_text5, True, black)
+    screen.blit(text5_surface,(30,305))
+
+    text6_surface = base_font.render(user_text6, True, black)
+    screen.blit(text6_surface,(30,350))
+
+
+
+
+
+
+
+    #text5_surface = base_font.render(user_text4, True, black)
+    #screen.blit(text3_surface,(30,190))
+
+
 
 
 
