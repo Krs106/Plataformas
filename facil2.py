@@ -196,7 +196,7 @@ def main():
                 if menu.collidepoint(mouse.get_pos()):
                     pygame.mixer.stop()
                     import Menu
-                    importlib.invalidate_caches(Menu)
+                    importlib.invalidate_caches()
             if event.type == pygame.QUIT:
                 run = False
             if event.type == pygame.KEYDOWN:
@@ -234,7 +234,7 @@ def main():
                         if board.is_finished() or strikes == 5:
                             print("Game over")
                             import Menu
-                            importlib.invalidate_caches(Menu)
+                            importlib.invalidate_caches()
                             
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
