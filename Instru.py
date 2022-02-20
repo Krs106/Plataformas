@@ -33,9 +33,9 @@ while True:
     screen.blit(fondo, [0, 0])
     menu = pygame.Rect(150, 450, 250, 50)
     if menu.collidepoint(mx, my):
-        draw.rect(win, (112, 185, 230), menu, 0)
+        draw.rect(screen, (112, 185, 230), menu, 0)
     else:
-        draw.rect(win, (111, 161, 252), menu, 0)
+        draw.rect(screen, (111, 161, 252), menu, 0)
     text = font.render("Menú", True, (255, 255, 255))
     screen.blit(text, (menu.x + (menu.width - text.get_width()) / 2,
                     menu.y + (menu.height - text.get_height()) / 2))
