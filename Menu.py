@@ -15,8 +15,6 @@ screen = pygame.display.set_mode((500, 500), 0, 32)
 font = pygame.font.SysFont("Comic Sans MS", 40)
 fondo = pygame.image.load("fondo.jpg").convert()
 
-#text2 = font.render(("Digite su nombre"), True, black)
-
 
 def draw_text(text, font, color, surface, x, y):
     textobj = font.render(text, 1, color)
@@ -37,10 +35,12 @@ def main_menu():
 
         mx, my = pygame.mouse.get_pos()
 
-        button_1 = pygame.Rect(125, 140, 250, 50)
-        button_2 = pygame.Rect(125, 240, 250, 50)
-        button_3 = pygame.Rect(125, 340, 250, 50)
-        button_4 = pygame.Rect(125, 420, 250, 50) #ubica botton
+        button_1 = pygame.Rect(125, 80, 250, 50)
+        button_2 = pygame.Rect(125, 160, 250, 50)
+        button_3 = pygame.Rect(125, 250, 250, 50)
+        button_4 = pygame.Rect(125, 340, 250, 50) #ubica botton
+        button_5 = pygame.Rect(125, 430, 250, 50)
+
 
         if button_1.collidepoint((mx, my)):
             button1_sound = pygame.mixer.Sound("button-6.wav")
@@ -90,19 +90,29 @@ def main_menu():
             if click:
                     import Registro1
 
+        if button_5.collidepoint((mx, my)):
+            button5_sound = pygame.mixer.Sound("button-6.wav")
+            button5_sound.set_volume(0.2)
+            button5_sound.play()
+            if click:
+                import Instru
+
 
         pygame.draw.rect(screen, (121, 168, 217), button_1)
         facil = font.render("Facil", True, (255,255,255))
-        screen.blit(facil, (200,150))
+        screen.blit(facil, (210,90))
         pygame.draw.rect(screen, (121, 168, 217), button_2)
         intermedio = font.render("Intermedio", True, (255, 255, 255))
-        screen.blit(intermedio, (150, 250))
+        screen.blit(intermedio, (175, 170))
         pygame.draw.rect(screen, (121, 168, 217), button_3)
         dificil = font.render("Dificil", True, (255, 255, 255))
-        screen.blit(dificil, (200, 350))
+        screen.blit(dificil, (210, 260))
         pygame.draw.rect(screen, (121, 168, 217), button_4)
         Registro = font.render("Registro", True, (255, 255, 255)) #donde aparece la palabra
-        screen.blit(Registro, (200, 430)) #Aqui
+        screen.blit(Registro, (200, 350)) #Aqui
+        pygame.draw.rect(screen, (121, 168, 217), button_5)
+        Instru1 = font.render("Instrucciones", True, (255,255,255))
+        screen.blit(Instru1, (150,435))
 
 
         click = False
