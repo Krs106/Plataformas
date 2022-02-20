@@ -29,8 +29,6 @@ color = pygame.Color('blue')
 
 while True:
     mx, my = pygame.mouse.get_pos()
-    fondo = pygame.image.load("dificil.jpg").convert()
-    screen.blit(fondo, [0, 0])
     menu = pygame.Rect(150, 450, 250, 50)
     if menu.collidepoint(mx, my):
         draw.rect(screen, (112, 185, 230), menu, 0)
