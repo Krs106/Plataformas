@@ -4,6 +4,7 @@ import pygame
 from pygame import *
 from Sudoku import solve, valid
 import time
+import importlib
 pygame.font.init()
 pygame.mixer.init()
 sound = pygame.mixer.Sound("ELVIS.mp3")
@@ -195,6 +196,7 @@ def main():
                 if menu.collidepoint(mouse.get_pos()):
                     pygame.mixer.stop()
                     import Menu
+                    importlib.reload(Menu)
             if event.type == pygame.QUIT:
                 run = False
             if event.type == pygame.KEYDOWN:
@@ -232,6 +234,7 @@ def main():
                         if board.is_finished() or strikes == 5:
                             print("Game over")
                             import Menu
+                            importlib.reload(Menu)
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
