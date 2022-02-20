@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import pygame, sys
+from pygame import *
+import importlib
 
 pygame.init()
 pygame.font.init()
@@ -26,7 +28,23 @@ input_rect = pygame.Rect(200,135,140,32)
 color = pygame.Color('blue')
 
 while True:
+    mx, my = pygame.mouse.get_pos()
+    fondo = pygame.image.load("dificil.jpg").convert()
+    screen.blit(fondo, [0, 0])
+    menu = pygame.Rect(150, 450, 250, 50)
+    if menu.collidepoint(mx, my):
+        draw.rect(win, (112, 185, 230), menu, 0)
+    else:
+        draw.rect(win, (111, 161, 252), menu, 0)
+    text = font.render("Menú", True, (255, 255, 255))
+    screen.blit(text, (menu.x + (menu.width - text.get_width()) / 2,
+                    menu.y + (menu.height - text.get_height()) / 2))
     for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if menu.collidepoint(mouse.get_pos()):
+                pygame.mixer.stop()
+                import Menu
+                importlib.reload(Menu)
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
