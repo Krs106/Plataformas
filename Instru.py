@@ -12,15 +12,6 @@ screen =pygame.display.set_mode([500,500])
 fondo = pygame.image.load("sudo.JPG").convert()
 text2 = font.render(("Digite su nombre"), True, black)
 base_font = pygame.font.Font(None,27)
-mx, my = pygame.mouse.get_pos()
-menu = pygame.Rect(150, 450, 250, 50)
-if menu.collidepoint(mx, my):
-    draw.rect(screen, (112, 185, 230), menu, 0)
-else:
-    draw.rect(screen, (111, 161, 252), menu, 0)
-text = font.render("Menú", True, (255, 255, 255))
-screen.blit(text, (menu.x + (menu.width - text.get_width()) / 2,
-                    menu.y + (menu.height - text.get_height()) / 2))
 
 user_text1 = 'Instruciones'
 user_text2 = '1. Seleccione la celda con el mouse para modificar'
@@ -37,6 +28,7 @@ input_rect = pygame.Rect(200,135,140,32)
 color = pygame.Color('blue')
 
 while True:
+    menu = pygame.Rect(150, 450, 250, 50)
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
             if menu.collidepoint(mouse.get_pos()):
@@ -62,6 +54,16 @@ while True:
     screen.blit(fondo, [0,0])
     pygame.draw.rect(screen,color,input_rect,2)
     screen.blit(fondo, [0,0])
+    mx, my = pygame.mouse.get_pos()
+    menu = pygame.Rect(150, 450, 250, 50)
+    if menu.collidepoint(mx, my):
+        draw.rect(screen, (112, 185, 230), menu, 0)
+    else:
+        draw.rect(screen, (111, 161, 252), menu, 0)
+    text = font.render("Menú", True, (255, 255, 255))
+    screen.blit(text, (menu.x + (menu.width - text.get_width()) / 2,
+                    menu.y + (menu.height - text.get_height()) / 2))
+
     text1_surface = base_font.render(user_text1, True, (50,50,255))
     screen.blit(text1_surface,(80,13))
 
