@@ -225,6 +225,7 @@ def main():
                             print("Game over")
                             import Menu
                             importlib.reload(Menu)
+                            importlib.invalidate_caches()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
@@ -236,6 +237,7 @@ def main():
                     pygame.mixer.stop()
                     import Menu
                     importlib.reload(Menu)
+                    importlib.invalidate_caches()
 
         if board.selected and key != None:
             board.sketch(key)
