@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-# Setup Python ----------------------------------------------- #
+# Se importan las bibliotecas necesarias ----------------------------------------------- #
 import pygame, sys
 import random
-import importlib
 
-# Setup pygame/window ---------------------------------------- #
+# Se configura la ventada ---------------------------------------- #
 mainClock = pygame.time.Clock()
 from pygame.locals import *
 
@@ -15,7 +14,6 @@ screen = pygame.display.set_mode((500, 500), 0, 32)
 
 font = pygame.font.SysFont("Comic Sans MS", 40)
 fondo = pygame.image.load("fondo.jpg").convert()
-importlib.invalidate_caches()
 
 
 def draw_text(text, font, color, surface, x, y):
@@ -30,9 +28,9 @@ click = False
 #funciones de mission
 def main_menu():
     while True:
-
+        
+        # Se crean el fondo, el titulo Menu y los botones
         screen.blit(fondo, [0,0])
-        #screen.blit(text2, (80, 90))
         draw_text('Menu', font, (255, 255, 255), screen, 200, 20)
 
         mx, my = pygame.mouse.get_pos()
@@ -40,9 +38,10 @@ def main_menu():
         button_1 = pygame.Rect(125, 80, 250, 50)
         button_2 = pygame.Rect(125, 160, 250, 50)
         button_3 = pygame.Rect(125, 250, 250, 50)
-        button_4 = pygame.Rect(125, 340, 250, 50) #ubica botton
+        button_4 = pygame.Rect(125, 340, 250, 50) 
         button_5 = pygame.Rect(125, 430, 250, 50)
 
+        # Se da las instrucciones para que se importen los programas respectivos al presionar cada boton
         if button_1.collidepoint((mx, my)):
             button1_sound = pygame.mixer.Sound("button-6.wav")
             button1_sound.set_volume(0.2)
@@ -76,7 +75,7 @@ def main_menu():
             if click:
                 import Instru
 
-
+        # Se dibujan los botones
         pygame.draw.rect(screen, (121, 168, 217), button_1)
         facil = font.render("Facil", True, (255,255,255))
         screen.blit(facil, (210,90))
