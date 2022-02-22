@@ -388,6 +388,7 @@ def main():
                         key = None
 
                         if board.is_finished() or strikes == 5:
+                            pygame.mixer.stop()
                             print("Game over")
                             Menu()
 
