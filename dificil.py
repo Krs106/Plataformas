@@ -325,7 +325,7 @@ def redraw_window(win, board, time, strikes):
     mx, my = pygame.mouse.get_pos()
     fondo = pygame.image.load("dificil.jpg").convert()
     win.blit(fondo, [0, 0])
-    menu = pygame.Rect(150, 600, 250, 50)
+    menu = pygame.Rect(200, 600, 250, 50)
     if menu.collidepoint(mx, my):
         draw.rect(win, (112, 185, 230), menu, 0)
     else:
@@ -339,6 +339,12 @@ def redraw_window(win, board, time, strikes):
     win.blit(text, (20, 550))
     text = fnt.render("Menú", True, (255, 255, 255))
     win.blit(text, (menu.x + (menu.width - text.get_width()) / 2, menu.y + (menu.height - text.get_height()) / 2))
+    #Imprimir NICK
+    archivo = open ("Prueba.txt")
+    textow = (archivo.read())
+    purple = (128, 0, 128)
+    text = fnt.render(textow, True, purple)
+    win.blit(text, (10, 600))
     # Draw grid and board
     board.draw(win)
 
