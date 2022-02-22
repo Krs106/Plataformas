@@ -10,6 +10,147 @@ pygame.mixer.init()
 sound = pygame.mixer.Sound("GNRJ.mp3")
 sound.play()
 
+def Menu():
+    #!/usr/bin/python3
+    # Setup Python ----------------------------------------------- #
+    import pygame, sys
+    import random
+    import importlib
+
+    # Setup pygame/window ---------------------------------------- #
+    mainClock = pygame.time.Clock()
+    from pygame.locals import *
+
+    pygame.init()
+    black =(0,0,0)
+    pygame.display.set_caption('Sudoku')
+    screen = pygame.display.set_mode((500, 500), 0, 32)
+
+    font = pygame.font.SysFont("Comic Sans MS", 40)
+    fondo = pygame.image.load("fondo.jpg").convert()
+    importlib.invalidate_caches()
+
+
+    def draw_text(text, font, color, surface, x, y):
+        textobj = font.render(text, 1, color)
+        textrect = textobj.get_rect()
+        textrect.topleft = (x, y)
+        surface.blit(textobj, textrect)
+
+
+    click = False
+
+    #funciones de mission
+    def main_menu():
+        while True:
+
+            screen.blit(fondo, [0,0])
+            #screen.blit(text2, (80, 90))
+            draw_text('Menu', font, (255, 255, 255), screen, 200, 20)
+
+            mx, my = pygame.mouse.get_pos()
+
+            button_1 = pygame.Rect(125, 80, 250, 50)
+            button_2 = pygame.Rect(125, 160, 250, 50)
+            button_3 = pygame.Rect(125, 250, 250, 50)
+            button_4 = pygame.Rect(125, 340, 250, 50) #ubica botton
+            button_5 = pygame.Rect(125, 430, 250, 50)
+
+
+            if button_1.collidepoint((mx, my)):
+                button1_sound = pygame.mixer.Sound("button-6.wav")
+                button1_sound.set_volume(0.2)
+                button1_sound.play()
+                if click:
+                    #sound = pygame.mixer.Sound("5TASINFONIA.mp3")
+                    #sound.play()
+                    x = random.randint(1, 3)
+                    if x == 1:
+                        import facil1
+                    elif x == 2:
+                        import facil2
+                    elif x == 3:
+                        import facil3
+            if button_2.collidepoint((mx, my)):
+                button2_sound = pygame.mixer.Sound("button-8.wav")
+                button2_sound.set_volume(0.2)
+                button2_sound.play()
+                if click:
+                    #sound = pygame.mixer.Sound("ELVIS.mp3")
+                    #sound.play()
+                    x = random.randint(1, 4)
+                    if x == 1:
+                        import intermedio1
+                    elif x == 2:
+                        import intermedio2
+                    elif x == 3:
+                        import intermedio3
+            if button_3.collidepoint((mx, my)):
+                button3_sound = pygame.mixer.Sound("button-09a.wav")
+                button3_sound.set_volume(0.2)
+                button3_sound.play()
+                if click:
+                    #sound = pygame.mixer.Sound("GNRJ.mp3")
+                    #sound.play()
+                    x = random.randint(1,3)
+                    if x == 1:
+                        import dificil1
+                    elif x == 2:
+                        import dificil2
+
+            if button_4.collidepoint((mx, my)):
+                button4_sound = pygame.mixer.Sound("button-09a.wav")
+                button4_sound.set_volume(0.2)
+                button4_sound.play()
+                if click:
+                        import Registro1
+
+            if button_5.collidepoint((mx, my)):
+                button5_sound = pygame.mixer.Sound("button-6.wav")
+                button5_sound.set_volume(0.2)
+                button5_sound.play()
+                if click:
+                    import Instru
+
+
+            pygame.draw.rect(screen, (121, 168, 217), button_1)
+            facil = font.render("Facil", True, (255,255,255))
+            screen.blit(facil, (210,90))
+            pygame.draw.rect(screen, (121, 168, 217), button_2)
+            intermedio = font.render("Intermedio", True, (255, 255, 255))
+            screen.blit(intermedio, (175, 170))
+            pygame.draw.rect(screen, (121, 168, 217), button_3)
+            dificil = font.render("Dificil", True, (255, 255, 255))
+            screen.blit(dificil, (210, 260))
+            pygame.draw.rect(screen, (121, 168, 217), button_4)
+            Registro = font.render("Registro", True, (255, 255, 255)) #donde aparece la palabra
+            screen.blit(Registro, (200, 350)) #Aqui
+            pygame.draw.rect(screen, (121, 168, 217), button_5)
+            Instru1 = font.render("Instrucciones", True, (255,255,255))
+            screen.blit(Instru1, (150,435))
+
+
+            click = False
+            for event in pygame.event.get():
+                if event.type == QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == KEYDOWN:
+                    if event.key == K_ESCAPE:
+                        pygame.quit()
+                        sys.exit()
+                if event.type == MOUSEBUTTONDOWN:
+                    if event.button == 1:
+                        click = True
+
+            pygame.display.update()
+            mainClock.tick(60)
+
+
+
+    main_menu()
+
+
 class Grid:
     # To change the starting board change this
     board = [
@@ -223,9 +364,7 @@ def main():
 
                         if board.is_finished() or strikes == 5:
                             print("Game over")
-                            import Menu
-                            importlib.reload(Menu)
-                            importlib.invalidate_caches()
+                            Menu()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 clicked = board.click(pos)
@@ -234,9 +373,7 @@ def main():
                     key = None
                 if menu.collidepoint(mouse.get_pos()):
                     pygame.mixer.stop()
-                    import Menu
-                    importlib.reload(Menu)
-                    importlib.invalidate_caches()
+                    Menu()
 
         if board.selected and key != None:
             board.sketch(key)
