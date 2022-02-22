@@ -5,6 +5,7 @@ from pygame import *
 from Sudoku import solve, valid
 import time
 import importlib
+import random
 pygame.font.init()
 pygame.mixer.init()
 sound = pygame.mixer.Sound("GNRJ.mp3")
