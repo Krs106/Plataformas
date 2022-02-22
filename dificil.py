@@ -369,7 +369,7 @@ def main():
     while run:
 
         play_time = round(time.time() - start)
-        menu = pygame.Rect(150, 600, 250, 50)
+        menu = pygame.Rect(200, 600, 250, 50)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
