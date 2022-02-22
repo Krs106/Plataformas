@@ -13,7 +13,7 @@ def Menu():
     pygame.init()
     black =(0,0,0)
     pygame.display.set_caption('Sudoku')
-    screen = pygame.display.set_mode((500, 600), 0, 32)
+    screen = pygame.display.set_mode((500, 500), 0, 32)
 
     font = pygame.font.SysFont("Comic Sans MS", 40)
     fondo = pygame.image.load("fondo.jpg").convert()
@@ -139,7 +139,7 @@ def Menu():
 
     main_menu()
 def main():
-    screen = pg.display.set_mode((640, 480))
+    screen = pg.display.set_mode((640, 540))
     fondo = pg.image.load("NARA.JPG")
     font = pg.font.Font(None, 32)
     clock = pg.time.Clock()
