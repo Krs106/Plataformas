@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import pygame as pg
+import pygame
 
 pg.init()
 def Menu():
