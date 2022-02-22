@@ -1,25 +1,21 @@
 # GUI.py
 # RUN THIS FILE
-import pygame
+import pygame, sys
 from pygame import *
 from Sudoku import solve, valid
 import time
 import importlib
+import random
 pygame.font.init()
 pygame.mixer.init()
 sound = pygame.mixer.Sound("ELVIS.mp3")
 sound.play()
 
 def Menu():
-    #!/usr/bin/python3
-    # Setup Python ----------------------------------------------- #
-    import pygame, sys
-    import random
-    import importlib
+
 
     # Setup pygame/window ---------------------------------------- #
     mainClock = pygame.time.Clock()
-    from pygame.locals import *
 
     pygame.init()
     black =(0,0,0)
