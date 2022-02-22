@@ -28,7 +28,7 @@ click = False
 #funciones de mission
 def main_menu():
     while True:
-        
+
         # Se crean el fondo, el titulo Menu y los botones
         screen.blit(fondo, [0,0])
         draw_text('Menu', font, (255, 255, 255), screen, 200, 20)
@@ -38,7 +38,7 @@ def main_menu():
         button_1 = pygame.Rect(125, 80, 250, 50)
         button_2 = pygame.Rect(125, 160, 250, 50)
         button_3 = pygame.Rect(125, 250, 250, 50)
-        button_4 = pygame.Rect(125, 340, 250, 50) 
+        button_4 = pygame.Rect(125, 340, 250, 50)
         button_5 = pygame.Rect(125, 430, 250, 50)
 
         # Se da las instrucciones para que se importen los programas respectivos al presionar cada boton
@@ -91,7 +91,6 @@ def main_menu():
         pygame.draw.rect(screen, (121, 168, 217), button_5)
         Instru1 = font.render("Instrucciones", True, (255,255,255))
         screen.blit(Instru1, (150,435))
-
 
         click = False
         for event in pygame.event.get():
