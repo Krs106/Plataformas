@@ -13,7 +13,7 @@ def Menu():
     pygame.init()
     black =(0,0,0)
     pygame.display.set_caption('Sudoku')
-    screen = pygame.display.set_mode((500, 500), 0, 32)
+    screen = pygame.display.set_mode((500, 600), 0, 32)
 
     font = pygame.font.SysFont("Comic Sans MS", 40)
     fondo = pygame.image.load("fondo.jpg").convert()
