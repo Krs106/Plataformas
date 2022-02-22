@@ -54,6 +54,7 @@ def Menu():
 
     #funciones de mission
     def main_menu():
+        click = False
         while True:
 
             screen.blit(fondo, [0,0])
