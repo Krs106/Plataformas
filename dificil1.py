@@ -9,7 +9,7 @@ pygame.font.init()
 pygame.mixer.init()
 sound = pygame.mixer.Sound("GNRJ.mp3")
 sound.play()
-
+importlib.invalidate_caches()
 class Grid:
     # To change the starting board change this
     board = [
