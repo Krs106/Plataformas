@@ -2,7 +2,9 @@
 # Se importan las bibliotecas necesarias ----------------------------------------------- #
 import pygame, sys
 import random
-
+from Sudoku import solve, valid
+import time
+import random
 # Se configura la ventada ---------------------------------------- #
 mainClock = pygame.time.Clock()
 from pygame.locals import *
@@ -24,6 +26,9 @@ def draw_text(text, font, color, surface, x, y):
 
 
 click = False
+
+def facil():
+    
 
 #funciones de mission
 def main_menu():
