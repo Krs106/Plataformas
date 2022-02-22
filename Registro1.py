@@ -159,6 +159,10 @@ def main():
         menu = pygame.Rect(150, 450, 250, 50)
         
         for event in pg.event.get():
+            if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                if menu.collidepoint(mouse.get_pos()):
+                    pygame.mixer.stop()
+                    Menu()
             if event.type == pg.QUIT:
                 done = True
             if event.type == pg.MOUSEBUTTONDOWN:
