@@ -66,7 +66,7 @@ def main_menu():
             button4_sound.set_volume(0.2)
             button4_sound.play()
             if click:
-                    import Registro1
+                    import Registroname
 
         if button_5.collidepoint((mx, my)):
             button5_sound = pygame.mixer.Sound("button-6.wav")
