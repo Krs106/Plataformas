@@ -229,9 +229,9 @@ def main():
             draw.rect(screen, (112, 185, 230), menu, 0)
         else:
             draw.rect(screen, (111, 161, 252), menu, 0)
-        text = font.render("Menú", True, (255, 255, 255))
-        screen.blit(text, (menu.x + (menu.width - text.get_width()) / 2,
-                    menu.y + (menu.height - text.get_height()) / 2))
+        texto = font.render("Menú", True, (255, 255, 255))
+        screen.blit(texto, (menu.x + (menu.width - texto.get_width()) / 2,
+                    menu.y + (menu.height - texto.get_height()) / 2))
         
 
 
