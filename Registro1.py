@@ -223,8 +223,8 @@ def main():
         text9_surface = font.render(text, True, purple)
         screen.blit(text9_surface,(200,300))
         # Menu
-        mx, my = pygame.mouse.get_pos()
-        menu = pygame.Rect(150, 450, 250, 50)
+        mx, my = pg.mouse.get_pos()
+        menu = pg.Rect(150, 450, 250, 50)
         if menu.collidepoint(mx, my):
             draw.rect(screen, (112, 185, 230), menu, 0)
         else:
