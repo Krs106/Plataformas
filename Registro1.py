@@ -154,6 +154,8 @@ def main():
     done = False
 
     while not done:
+        menu = pygame.Rect(150, 450, 250, 50)
+        
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 done = True
@@ -218,6 +220,16 @@ def main():
         #name
         text9_surface = font.render(text, True, purple)
         screen.blit(text9_surface,(200,300))
+        # Menu
+        mx, my = pygame.mouse.get_pos()
+        menu = pygame.Rect(150, 450, 250, 50)
+        if menu.collidepoint(mx, my):
+            draw.rect(screen, (112, 185, 230), menu, 0)
+        else:
+            draw.rect(screen, (111, 161, 252), menu, 0)
+        text = font.render("Menú", True, (255, 255, 255))
+        screen.blit(text, (menu.x + (menu.width - text.get_width()) / 2,
+                    menu.y + (menu.height - text.get_height()) / 2))
         
 
 
