@@ -17,7 +17,6 @@ def Menu():
 
     font = pygame.font.SysFont("Comic Sans MS", 40)
     fondo = pygame.image.load("fondo.jpg").convert()
-    importlib.invalidate_caches()
 
 
     def draw_text(text, font, color, surface, x, y):
