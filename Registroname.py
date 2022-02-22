@@ -84,8 +84,7 @@ def main():
         #name
         text9_surface = font.render(text, True, purple)
         screen.blit(text9_surface,(200,300))
-        #Insertar Imagen
-        img.append(pygame.image.load("images/giraffe.png"))
+        
 
 
 
