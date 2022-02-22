@@ -15,7 +15,6 @@ def main():
     red =(255,0,0)
     purple = (128,0,128)
     teal = (0,128,128)
-
     active = False
     text = ''
     done = False
