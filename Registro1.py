@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import pygame as pg
 
-
+pg.init()
 def main():
     screen = pg.display.set_mode((640, 480))
     fondo = pg.image.load("NARA.JPG")
@@ -95,7 +95,5 @@ def main():
         clock.tick(30)
 
 
-if __name__ == '__main__':
-    pg.init()
-    main()
-    pg.quit()
+main()
+pg.quit()
