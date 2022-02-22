@@ -160,13 +160,26 @@ class Grid:
         [0, 7, 0, 0, 0, 5, 2, 1, 4],
         [0, 3, 2, 1, 4, 7, 0, 8, 6]
     ]
-    x = random.randint(1, 4)
+    plan4 = [
+        [8, 0, 0, 1, 0, 0, 0, 7, 0],
+        [0, 2, 0, 0, 4, 0, 8, 0, 0],
+        [0, 6, 0, 7, 0, 0, 0, 0, 0],
+        [0, 0, 0, 4, 7, 0, 9, 0, 8],
+        [2, 4, 0, 0, 8, 0, 0, 0, 0],
+        [0, 3, 8, 0, 0, 0, 0, 0, 5],
+        [0, 8, 0, 6, 0, 4, 1, 0, 0],
+        [9, 0, 0, 0, 0, 7, 2, 0, 4],
+        [0, 0, 5, 8, 1, 0, 0, 0, 6]
+    ]
+    x = random.randint(1, 5)
     if x == 1:
         board = plan1
     elif x == 2:
         board = plan2
     elif x == 3:
         board = plan3
+    elif x == 4:
+        board = plan4
 
     def __init__(self, rows, cols, width, height):
         self.rows = rows
