@@ -2,6 +2,7 @@
 # Setup Python ----------------------------------------------- #
 import pygame, sys
 import random
+import importlib
 
 # Setup pygame/window ---------------------------------------- #
 mainClock = pygame.time.Clock()
@@ -14,6 +15,7 @@ screen = pygame.display.set_mode((500, 500), 0, 32)
 
 font = pygame.font.SysFont("Comic Sans MS", 40)
 fondo = pygame.image.load("fondo.jpg").convert()
+importlib.invalidate_caches()
 
 
 def draw_text(text, font, color, surface, x, y):
