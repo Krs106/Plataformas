@@ -189,7 +189,7 @@ def main():
         screen.fill((30, 30, 30))
         screen.blit(fondo, [0, 0])
         # Render the current text.
-        txt_surface = font.render(text, True, color)
+        txt_surface = font.render(text, True, 128, 0, 128)
         # Resize the box if the text is too long.
         width = max(210, txt_surface.get_width()+10)
         input_box.w = width
