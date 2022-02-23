@@ -199,7 +199,8 @@ class Grid:
         self.height = height
         self.model = None
         self.selected = None
-
+    
+    # Funciones que revisan la matriz del sudoku
     def update_model(self):
         self.model = [[self.cubes[i][j].value for j in range(self.cols)] for i in range(self.rows)]
 
@@ -221,6 +222,7 @@ class Grid:
         row, col = self.selected
         self.cubes[row][col].set_temp(val)
 
+    # Dibuja las lineas del sudoku
     def draw(self, win):
         # Draw Grid Lines
         gap = self.width / 9
@@ -236,7 +238,8 @@ class Grid:
         for i in range(self.rows):
             for j in range(self.cols):
                 self.cubes[i][j].draw(win)
-
+    
+    # Selecciona cada elemento
     def select(self, row, col):
         # Reset all other
         for i in range(self.rows):
@@ -251,11 +254,8 @@ class Grid:
         if self.cubes[row][col].value == 0:
             self.cubes[row][col].set_temp(0)
 
+    # Retorna la posición del cuadro al que se le hizo click
     def click(self, pos):
-        """
-        :param: pos
-        :return: (row, col)
-        """
         if pos[0] < self.width and pos[1] < self.height:
             gap = self.width / 9
             x = pos[0] // gap
@@ -263,7 +263,7 @@ class Grid:
             return (int(y),int(x))
         else:
             return None
-
+    # Identifica si el sudoku ha sido completado
     def is_finished(self):
         for i in range(self.rows):
             for j in range(self.cols):
@@ -285,6 +285,7 @@ class Cube:
         self.height = height
         self.selected = False
 
+    # Dibujael contenido de los cuadros y un cuadro rojo cuando es seleccionado alguno
     def draw(self, win):
         fnt = pygame.font.SysFont("comicsans", 40)
 
@@ -308,6 +309,7 @@ class Cube:
     def set_temp(self, val):
         self.temp = val
 
+# Dibuja la pantalla del juego
 def redraw_window(win, board, time, strikes):
     win.fill((255,255,255))
     mx, my = pygame.mouse.get_pos()
@@ -318,11 +320,11 @@ def redraw_window(win, board, time, strikes):
         draw.rect(win, (112, 185, 230), menu, 0)
     else:
         draw.rect(win, (111, 161, 252), menu, 0)
-    # Draw time
+    # Dibuja el tiempo
     fnt = pygame.font.SysFont("comicsans", 40)
     text = fnt.render("Time: " + format_time(time), 1, (0,0,0))
     win.blit(text, (480 -  160, 550))
-    # Draw Strikes
+    # Dibuja los errores
     text = fnt.render("X " * strikes, 1, (255, 0, 0))
     win.blit(text, (20, 550))
     text = fnt.render("Menú", True, (255, 255, 255))
@@ -333,10 +335,10 @@ def redraw_window(win, board, time, strikes):
     purple = (128, 0, 128)
     text = fnt.render(textow, True, purple)
     win.blit(text, (10, 600))
-    # Draw grid and board
+    # Dibuja la tabla
     board.draw(win)
 
-
+# Funcion para correr el tiempo
 def format_time(secs):
     sec = secs%60
     minute = secs//60
@@ -358,14 +360,16 @@ def main():
 
         play_time = round(time.time() - start)
         menu = pygame.Rect(250, 600, 250, 50)
-
+        # Comandos para la interacción del usuario con el programa
         for event in pygame.event.get():
+            # Presiona el boton menu
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 if menu.collidepoint(mouse.get_pos()):
                     pygame.mixer.stop()
                     Menu()
             if event.type == pygame.QUIT:
                 run = False
+            # Coloca los numeros
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_1:
                     key = 1
@@ -388,6 +392,7 @@ def main():
                 if event.key == pygame.K_DELETE:
                     board.clear()
                     key = None
+                # Revisa si el número escrito por el usuario es correcto
                 if event.key == pygame.K_RETURN:
                     i, j = board.selected
                     if board.cubes[i][j].temp != 0:
@@ -397,7 +402,8 @@ def main():
                             print("Wrong")
                             strikes += 1
                         key = None
-
+                        # Revisa si el usuario completo el sudoku o si se ha equivocado
+                        # más de 5 veces
                         if board.is_finished() or strikes == 5:
                             pygame.mixer.stop()
                             print("Game over")
@@ -419,9 +425,9 @@ def main():
         redraw_window(win, board, play_time, strikes)
         pygame.display.update()
 
-# SE IGNORA LA DEFINICION DE RELOJ Y DEMAS ELEMENTOS BASICOS
 GAME_END = False
 
 
 main()
+# Termina el  juego
 pygame.quit()
