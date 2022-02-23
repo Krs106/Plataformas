@@ -314,7 +314,7 @@ def redraw_window(win, board, time, strikes):
     fondo = pygame.image.load("intermedio.jpg").convert()
     win.blit(fondo, [0, 0])
     mx, my = pygame.mouse.get_pos()
-    menu = pygame.Rect(200, 600, 250, 50)
+    menu = pygame.Rect(250, 600, 250, 50)
     if menu.collidepoint(mx, my):
         draw.rect(win, (112, 185, 230), menu, 0)
     else:
@@ -357,7 +357,7 @@ def main():
     while run:
 
         play_time = round(time.time() - start)
-        menu = pygame.Rect(200, 600, 250, 50)
+        menu = pygame.Rect(250, 600, 250, 50)
 
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
