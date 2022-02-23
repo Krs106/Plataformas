@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # Se importan las bibliotecas necesarias ----------------------------------------------- #
-import pygame, sys
+import pygame
+import sys
 from pygame.locals import *
 import random
 from Sudoku import solve, valid
