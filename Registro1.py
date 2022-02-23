@@ -50,32 +50,30 @@ def Menu():
                 button1_sound.set_volume(0.2)
                 button1_sound.play()
                 if click:
-                    #sound = pygame.mixer.Sound("5TASINFONIA.mp3")
-                    #sound.play()
                     import facil
+                    importlib.reload(facil)
             if button_2.collidepoint((mx, my)):
                 button2_sound = pygame.mixer.Sound("button-8.wav")
                 button2_sound.set_volume(0.2)
                 button2_sound.play()
                 if click:
-                    #sound = pygame.mixer.Sound("ELVIS.mp3")
-                    #sound.play()
                     import intermedio
+                    importlib.reload(intermedio)
             if button_3.collidepoint((mx, my)):
                 button3_sound = pygame.mixer.Sound("button-09a.wav")
                 button3_sound.set_volume(0.2)
                 button3_sound.play()
                 if click:
-                    #sound = pygame.mixer.Sound("GNRJ.mp3")
-                    #sound.play()
                     import dificil
+                    importlib.reload(dificil)
 
             if button_4.collidepoint((mx, my)):
                 button4_sound = pygame.mixer.Sound("button-09a.wav")
                 button4_sound.set_volume(0.2)
                 button4_sound.play()
                 if click:
-                        import Registro1
+                    import Registro1
+                    importlib.reload(Registro1)
 
             if button_5.collidepoint((mx, my)):
                 button5_sound = pygame.mixer.Sound("button-6.wav")
@@ -83,6 +81,7 @@ def Menu():
                 button5_sound.play()
                 if click:
                     import Instru
+                    importlib.reload(Instru)
 
 
             pygame.draw.rect(screen, (121, 168, 217), button_1)
@@ -140,7 +139,7 @@ def main():
 
     while not done:
         menu = pygame.Rect(300, 450, 250, 50)
-        
+
         for event in pg.event.get():
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 if menu.collidepoint(mouse.get_pos()):
@@ -219,7 +218,7 @@ def main():
         texto = font.render("Menú", True, (255, 255, 255))
         screen.blit(texto, (menu.x + (menu.width - texto.get_width()) / 2,
                     menu.y + (menu.height - texto.get_height()) / 2))
-        
+
 
 
 
