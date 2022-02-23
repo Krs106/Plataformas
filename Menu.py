@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 # Se importan las bibliotecas necesarias ----------------------------------------------- #
 import pygame, sys
+from pygame.locals import *
 import random
 from Sudoku import solve, valid
 import time
 import random
 # Se configura la ventada ---------------------------------------- #
 mainClock = pygame.time.Clock()
-from pygame.locals import *
 
 pygame.init()
 black =(0,0,0)
