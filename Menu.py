@@ -61,7 +61,9 @@ def facil():
         #funciones de mission
         def main_menu():
             while True:
-
+                
+                click = False
+                
                 screen.blit(fondo, [0,0])
                 #screen.blit(text2, (80, 90))
                 draw_text('Menu', font, (255, 255, 255), screen, 200, 20)
