@@ -26,7 +26,6 @@ def draw_text(text, font, color, surface, x, y):
 
 click = False
 
-#funciones de mission
 def main_menu():
     while True:
 
@@ -56,12 +55,14 @@ def main_menu():
             button2_sound.play()
             if click:
                 import intermedio
+                importlib.reaload(intermedio)
         if button_3.collidepoint((mx, my)):
             button3_sound = pygame.mixer.Sound("button-09a.wav")
             button3_sound.set_volume(0.2)
             button3_sound.play()
             if click:
                 import dificil
+                importlib.reaload(dificil)
 
         if button_4.collidepoint((mx, my)):
             button4_sound = pygame.mixer.Sound("button-09a.wav")
@@ -69,6 +70,7 @@ def main_menu():
             button4_sound.play()
             if click:
                 import Registro1
+                importlib.reaload(Regsitro1)
 
         if button_5.collidepoint((mx, my)):
             button5_sound = pygame.mixer.Sound("button-6.wav")
@@ -76,6 +78,7 @@ def main_menu():
             button5_sound.play()
             if click:
                 import Instru
+                importlib.reaload(Instru)
 
         # Se dibujan los botones
         pygame.draw.rect(screen, (121, 168, 217), button_1)
