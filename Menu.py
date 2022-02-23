@@ -2,6 +2,7 @@
 # Se importan las bibliotecas necesarias ----------------------------------------------- #
 import pygame, sys
 import random
+import importlib
 
 # Se configura la ventada ---------------------------------------- #
 mainClock = pygame.time.Clock()
@@ -48,6 +49,7 @@ def main_menu():
             button1_sound.play()
             if click:
                 import facil
+                importlib.reload(facil)
         if button_2.collidepoint((mx, my)):
             button2_sound = pygame.mixer.Sound("button-8.wav")
             button2_sound.set_volume(0.2)
