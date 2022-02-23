@@ -142,7 +142,7 @@ def Menu():
                         click = True
             # Se ordena la actualización de la pantalla Menu
             pygame.display.update()
-            # Se establece ttiempo de cronómetro
+            # Se establece tiempo de cronómetro
             mainClock.tick(60)
 
 
@@ -200,5 +200,5 @@ while True:
     screen.blit(text6_surface, (30, 350))
     # Se ordena la actualización de la pantalla para la Instrución
     pygame.display.flip()
-    # Se establece ttiempo de cronómetro 
+    # Se establece ttiempo de cronómetro
     clock.tick(60)
