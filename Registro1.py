@@ -139,7 +139,7 @@ def main():
     done = False
 
     while not done:
-        menu = pygame.Rect(150, 450, 250, 50)
+        menu = pygame.Rect(200, 450, 250, 50)
         
         for event in pg.event.get():
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
@@ -211,7 +211,7 @@ def main():
         screen.blit(text9_surface,(200,300))
         # Menu
         mx, my = pg.mouse.get_pos()
-        menu = pg.Rect(150, 450, 250, 50)
+        menu = pg.Rect(200, 450, 250, 50)
         if menu.collidepoint(mx, my):
             draw.rect(screen, (112, 185, 230), menu, 0)
         else:
