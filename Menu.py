@@ -436,6 +436,8 @@ def facil():
 
 
     GAME_END = False
+    main()
+    pygame.quit()
 
 def intermedio():
     pygame.font.init()
@@ -845,6 +847,9 @@ def intermedio():
 
 
     GAME_END = False
+    
+    main()
+    pygame.quit()
 
 def dificil():
     pygame.font.init()
@@ -1258,12 +1263,6 @@ def dificil():
 
     main()
     pygame.quit()
-
-main()
-pygame.quit()
-
-main()
-pygame.quit() 
 
 #funciones de mission
 def main_menu():
