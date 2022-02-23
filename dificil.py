@@ -1,5 +1,4 @@
-# GUI.py
-# RUN THIS FILE
+# Se importan las bibliotecas y archivos necesarios
 import pygame
 from pygame import *
 from Sudoku import solve, valid
@@ -7,11 +6,15 @@ import time
 import importlib
 import random
 import sys
+# Inicializa el modulo font
 pygame.font.init()
+# Inicializa el modulo mixer
 pygame.mixer.init()
+# Reproduce la música
 sound = pygame.mixer.Sound("GNRJ.mp3")
 sound.play()
 
+# la Función presenta la pantalla Menu
 def Menu():
 
 
@@ -131,7 +134,7 @@ def Menu():
     main_menu()
 
 class Grid:
-    # To change the starting board change this
+    # Se crean las plantillas para el juego, cada 0 es un espacio vacio en el juego
     board = []
     plan1 = [
         [5, 0, 8, 7, 0, 0, 0, 0, 0],
@@ -177,6 +180,7 @@ class Grid:
         [8, 0, 1, 0, 6, 0, 0, 0, 0],
         [0, 0, 0, 7, 0, 0, 0, 6, 3]
     ]
+    # Se escoge de forma aleatoria cual plantilla se mostrará al abrir el programa
     x = random.randint(1, 5)
     if x == 1:
         board = plan1
