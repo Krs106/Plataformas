@@ -365,13 +365,13 @@ def main():
     strikes = 0
     while run:
         
-        # Reproduce la musica
-        sound = pygame.mixer.Sound("ELVIS.mp3")
-        sound.play()
         play_time = round(time.time() - start)
         menu = pygame.Rect(250, 600, 250, 50)
 # Comandos para la interacción del usuario con el programa
         for event in pygame.event.get():
+             # Reproduce la musica
+            sound = pygame.mixer.Sound("ELVIS.mp3")
+            sound.play()
             # Presiona el boton menu
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 if menu.collidepoint(mouse.get_pos()):
