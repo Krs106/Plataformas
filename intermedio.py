@@ -10,6 +10,9 @@ import sys
 pygame.font.init()
 # Inicializa el modulo mixer
 pygame.mixer.init()
+# Reproduce la musica
+sound = pygame.mixer.Sound("ELVIS.mp3")
+sound.play()
 
 
 
@@ -358,9 +361,6 @@ def format_time(secs):
 def main():
     win = pygame.display.set_mode((540, 650))
     pygame.display.set_caption("Sudoku")
-    # Reproduce la musica
-    sound = pygame.mixer.Sound("ELVIS.mp3")
-    sound.play()
     board = Grid(9, 9, 540, 540)
     key = None
     run = True
