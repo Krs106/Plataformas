@@ -374,7 +374,7 @@ def main():
             # Presiona el boton menu
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 if menu.collidepoint(mouse.get_pos()):
-                    pygame.mixer.stop()
+                    pygame.mixer.music.stop()
                     Menu()
             if event.type == pygame.QUIT:
                 run = False
@@ -414,7 +414,7 @@ def main():
             # Revisa si el usuario completo el sudoku o si se ha equivocado
             # más de 5 veces
                         if board.is_finished() or strikes == 5:
-                            pygame.mixer.stop()
+                            pygame.mixer.music.stop()
                             print("Game over")
                             Menu()
 
