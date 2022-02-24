@@ -166,28 +166,16 @@ class Grid:
         [0, 6, 0, 3, 8, 0, 2, 0, 4],
         [0, 0, 0, 0, 6, 4, 1, 0, 0]
     ]
-    plan4 = [
-        [0, 0, 7, 0, 0, 0, 3, 0, 2],
-        [2, 0, 0, 0, 0, 5, 0, 1, 0],
-        [0, 0, 0, 8, 0, 1, 4, 0, 0],
-        [0, 1, 0, 0, 9, 6, 0, 0, 8],
-        [7, 6, 0, 0, 0, 0, 0, 4, 9],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 1, 0, 3, 0, 0, 0],
-        [8, 0, 1, 0, 6, 0, 0, 0, 0],
-        [0, 0, 0, 7, 0, 0, 0, 6, 3]
-    ]
+ 
     # Se escoge de forma aleatoria cual plantilla se mostrará
     # al abrir el programa
-    x = random.randint(1, 5)
+    x = random.randint(1, 4)
     if x == 1:
         board = plan1
     elif x == 2:
         board = plan2
     elif x == 3:
         board = plan3
-    elif x == 4:
-        board = plan4
 
     def __init__(self, rows, cols, width, height):
         self.rows = rows
