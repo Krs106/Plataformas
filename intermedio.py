@@ -358,6 +358,9 @@ def format_time(secs):
 def main():
     win = pygame.display.set_mode((540, 650))
     pygame.display.set_caption("Sudoku")
+    # Reproduce la musica
+    sound = pygame.mixer.Sound("ELVIS.mp3")
+    sound.play()
     board = Grid(9, 9, 540, 540)
     key = None
     run = True
@@ -369,9 +372,6 @@ def main():
         menu = pygame.Rect(250, 600, 250, 50)
 # Comandos para la interacción del usuario con el programa
         for event in pygame.event.get():
-             # Reproduce la musica
-            sound = pygame.mixer.Sound("ELVIS.mp3")
-            sound.play()
             # Presiona el boton menu
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 if menu.collidepoint(mouse.get_pos()):
