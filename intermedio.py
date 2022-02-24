@@ -11,9 +11,8 @@ pygame.font.init()
 # Inicializa el modulo mixer
 pygame.mixer.init()
 # Reproduce la musica
-sound = pygame.mixer.Sound("ELVIS.mp3")
-sound.play()
-
+pygame.mixer.music.load('ELVIS.mp3')
+pygame.mixer.music.play(loops = -1)
 
 
 # la Función presenta la pantalla Menu
