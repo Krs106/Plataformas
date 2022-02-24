@@ -25,8 +25,9 @@ user_text5 = '4. Presione el botón Menú para retornar al Menú'
 user_text6 = '5. Clic en la X de la Ventana para abandonar'
 
 # se difinen los Rectangulos de los bottones
-input_rect = pygame.Rect(200,135,140,32)
+input_rect = pygame.Rect(200, 135, 140, 32)
 color = pygame.Color('blue')
+
 
 def Menu():
 
@@ -34,7 +35,6 @@ def Menu():
     # define un cronómetro, título, letra, fondo
     mainClock = pygame.time.Clock()
     pygame.init()
-    black =(0,0,0)
     pygame.display.set_caption('Sudoku')
     screen = pygame.display.set_mode((500, 500), 0, 32)
     font = pygame.font.SysFont("Comic Sans MS", 40)
@@ -55,7 +55,7 @@ def Menu():
     def main_menu():
         click = False
         while True:
-            screen.blit(fondo, [0,0])
+            screen.blit(fondo, [0, 0])
             # Dibuja el Menu
             draw_text('Menu', font, (255, 255, 255), screen, 200, 20)
             mx, my = pygame.mouse.get_pos()
@@ -144,12 +144,12 @@ def Menu():
             pygame.display.update()
             # Se establece tiempo de cronómetro
             mainClock.tick(60)
-
-
     # Se llama la función
     main_menu()
 
 # Se crea un ciclo de acción para la pantalla instrucción
+
+
 while True:
     menu = pygame.Rect(150, 450, 250, 50)
     for event in pygame.event.get():
@@ -173,7 +173,7 @@ while True:
     screen.fill((0, 0, 0))
     screen.blit(fondo, [0, 0])
     pygame.draw.rect(screen, color, input_rect, 2)
-    screen.blit(fondo, [0,0])
+    screen.blit(fondo, [0, 0])
     mx, my = pygame.mouse.get_pos()
     menu = pygame.Rect(150, 450, 250, 50)
     if menu.collidepoint(mx, my):
@@ -184,18 +184,18 @@ while True:
     # Se dibuja el botton Menu
     text = font.render("Menú", True, (255, 255, 255))
     screen.blit(text, (menu.x + (menu.width - text.get_width()) / 2,
-                    menu.y + (menu.height - text.get_height()) / 2))
+                menu.y + (menu.height - text.get_height()) / 2))
     # Se crea el texto de las instrucciones y su posición
     text1_surface = base_font.render(user_text1, True, (50, 50, 255))
-    screen.blit(text1_surface,(80, 13))
+    screen.blit(text1_surface, (80, 13))
     text2_surface = base_font.render(user_text2, True, black)
     screen.blit(text2_surface, (30, 200))
     text3_surface = base_font.render(user_text3, True, black)
     screen.blit(text3_surface, (30, 235))
     text4_surface = base_font.render(user_text4, True, black)
-    screen.blit(text4_surface,(30,270))
+    screen.blit(text4_surface, (30, 270))
     text5_surface = base_font.render(user_text5, True, black)
-    screen.blit(text5_surface,(30,  305))
+    screen.blit(text5_surface, (30,  305))
     text6_surface = base_font.render(user_text6, True, black)
     screen.blit(text6_surface, (30, 350))
     # Se ordena la actualización de la pantalla para la Instrución

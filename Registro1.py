@@ -4,7 +4,7 @@
 import pygame as pg
 import pygame
 from pygame import *
-
+import importlib
 # iniciamos los modulos
 pg.init()
 
@@ -17,7 +17,6 @@ def Menu():
     mainClock = pygame.time.Clock()
     # iniciamos los modulos en menu
     pygame.init()
-    black = (0, 0, 0)
     pygame.display.set_caption('Sudoku')
     screen = pygame.display.set_mode((500, 500), 0, 32)
     font = pygame.font.SysFont("Comic Sans MS", 40)
@@ -36,7 +35,7 @@ def Menu():
     def main_menu():
         while True:
             # Se ubica el fondo
-            screen.blit(fondo, [0,0])
+            screen.blit(fondo, [0, 0])
             # Dibuja el Menu
             draw_text('Menu', font, (255, 255, 255), screen, 200, 20)
             mx, my = pygame.mouse.get_pos()
@@ -93,8 +92,8 @@ def Menu():
 
             # Se establece etiqueta sobre bottones y posición de la misma
             pygame.draw.rect(screen, (121, 168, 217), button_1)
-            facil = font.render("Facil", True, (255,255,255))
-            screen.blit(facil, (210,90))
+            facil = font.render("Facil", True, (255, 255, 255))
+            screen.blit(facil, (210, 90))
             pygame.draw.rect(screen, (121, 168, 217), button_2)
             intermedio = font.render("Intermedio", True, (255, 255, 255))
             screen.blit(intermedio, (175, 170))
@@ -105,8 +104,8 @@ def Menu():
             Registro = font.render("Registro", True, (255, 255, 255))
             screen.blit(Registro, (200, 350))
             pygame.draw.rect(screen, (121, 168, 217), button_5)
-            Instru1 = font.render("Instrucciones", True, (255,255,255))
-            screen.blit(Instru1, (150,435))
+            Instru1 = font.render("Instrucciones", True, (255, 255, 255))
+            screen.blit(Instru1, (150, 435))
 
             # Se establecen eventos para salir del menu
             click = False
@@ -126,9 +125,9 @@ def Menu():
             # Se establece ttiempo de cronómetro
             mainClock.tick(60)
 
-
     # Se llama la función
     main_menu()
+
 
 # Se define función para la plantilla de registro
 def main():
@@ -140,10 +139,9 @@ def main():
     color_inactive = pg.Color('lightskyblue3')
     color_active = pg.Color('dodgerblue2')
     color = color_inactive
-    black =(0,0,0)
-    red =(255,0,0)
-    purple = (128,0,128)
-    teal = (0,128,128)
+    black = (0, 0, 0)
+    purple = (128, 0, 128)
+    teal = (0, 128, 128)
     active = False
     text = ''
     done = False
@@ -198,28 +196,28 @@ def main():
         # DEFINO EL TEXTO EN PANTALLA
         # Título
         user_text1 = 'REGISTRO'
-        text1_surface = font.render(user_text1, True, (50,50,255))
-        screen.blit(text1_surface,(80, 30))
+        text1_surface = font.render(user_text1, True, (50, 50, 255))
+        screen.blit(text1_surface, (80, 30))
         user_text6 = 'DEL'
-        text6_surface = font.render(user_text6, True, (50,50,255))
-        screen.blit(text6_surface,(120, 52))
+        text6_surface = font.render(user_text6, True, (50, 50, 255))
+        screen.blit(text6_surface, (120, 52))
         user_text7 = 'USUARIO'
-        text7_surface = font.render(user_text7, True, (50,50,255))
-        screen.blit(text7_surface,(80, 74))
+        text7_surface = font.render(user_text7, True, (50, 50, 255))
+        screen.blit(text7_surface, (80, 74))
         # instrución para el usuario
         user_text2 = 'Digite su NICK haciendo click sobre el recuadro celeste'
         text2_surface = font.render(user_text2, True, black)
-        screen.blit(text2_surface,(30,140))
+        screen.blit(text2_surface, (30, 140))
         user_text8 = '<< Presione enter para registrarlo >>'
         text8_surface = font.render(user_text8, True, black)
-        screen.blit(text8_surface,(130,220))
+        screen.blit(text8_surface, (130, 220))
         # Para dar instrución de que se registra
         user_text3 = 'Registrando: '
         text3_surface = font.render(user_text3, True, teal)
-        screen.blit(text3_surface,(50,300))
+        screen.blit(text3_surface, (50, 300))
         # Para mostrar en pantalla el NICK digitado
         text9_surface = font.render(text, True, purple)
-        screen.blit(text9_surface,(200,300))
+        screen.blit(text9_surface, (200, 300))
         # Se dibuja botton Menu
         mx, my = pg.mouse.get_pos()
         menu = pg.Rect(300, 450, 250, 50)
