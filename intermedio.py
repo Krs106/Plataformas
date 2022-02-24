@@ -13,8 +13,6 @@ pygame.mixer.init()
 # Reproduce la musica
 sound = pygame.mixer.Sound("ELVIS.mp3")
 sound.play()
-sound = pygame.mixer.Sound("ELVIS.mp3")
-sound.play()
 
 
 
