@@ -16,7 +16,7 @@ clock = pygame.time.Clock()
 screen = pygame.display.set_mode([500, 500])
 fondo = pygame.image.load("sudo.JPG").convert()
 base_font = pygame.font.Font(None, 27)
-#Definimos en variable algunos string
+# Definimos en variable algunos string
 user_text1 = 'Instruciones'
 user_text2 = '1. Seleccione la celda con el mouse para modificar'
 user_text3 = '2. Digite el número correcto a escribir en la casilla'
@@ -200,5 +200,5 @@ while True:
     screen.blit(text6_surface, (30, 350))
     # Se ordena la actualización de la pantalla para la Instrución
     pygame.display.flip()
-    # Se establece ttiempo de cronómetro 
+    # Se establece ttiempo de cronómetro
     clock.tick(60)
