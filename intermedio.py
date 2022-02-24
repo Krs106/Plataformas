@@ -356,9 +356,6 @@ def format_time(secs):
 
 
 def main():
-    # Reproduce la musica
-    sound = pygame.mixer.Sound("ELVIS.mp3")
-    sound.play()
     win = pygame.display.set_mode((540, 650))
     pygame.display.set_caption("Sudoku")
     board = Grid(9, 9, 540, 540)
@@ -367,7 +364,10 @@ def main():
     start = time.time()
     strikes = 0
     while run:
-
+        
+        # Reproduce la musica
+        sound = pygame.mixer.Sound("ELVIS.mp3")
+        sound.play()
         play_time = round(time.time() - start)
         menu = pygame.Rect(250, 600, 250, 50)
 # Comandos para la interacción del usuario con el programa
